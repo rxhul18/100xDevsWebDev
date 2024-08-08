@@ -1,0 +1,34 @@
+.version {
+  .verpara {
+      position: relative;
+    p {
+      text-align: center;
+      width: 100%;
+      color: #9ba3b4;
+      font-size: 17px;
+      span {
+        text-decoration: underline;
+        color: #4daafc;
+      }
+    }
+    .cancel {
+      a::after {
+        content: "×";
+        font-size: 35px;
+        font-weight: 300;
+        display: block;
+        color: #9ba3b4;
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+      }
+      a{
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+      }
+    }
+  }
+}
