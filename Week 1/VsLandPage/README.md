@@ -1,8 +1,25 @@
-# React + Vite
+# VS Code Landing Page Project 🎨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the assignment project from the **100xDevs Web Development Cohort**. As part of the cohort, I coded this **VS Code Landing Page** using **Vite** and **React.js**.
 
-Currently, two official plugins are available:
+## Visit Live Demo: https://vscode-bice.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Overview 📋
+
+- **Project:** VS Code Landing Page
+- **Tech Stack:** Vite + React.js
+- **Purpose:** To demonstrate the skills and concepts learned during the cohort.
+- **Features:**
+  - Responsive design
+  - Interactive UI components
+  - Optimized performance with Vite
+
+## Getting Started 🚀
+
+To run this project locally:
+
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Start the development server with `npm run dev`.
+
+Feel free to explore the code and see how the landing page was built!
