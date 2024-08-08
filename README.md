@@ -1,6 +1,6 @@
 # 100xDevs Web Development Cohort 🚀
 
-Welcome to my **100xDevs Web Development** repository! This repo contains all the projects, code, and assignments I have worked on as part of the **100xDevs Web Development Cohort** led by [Harkirat Singh](https://github.com/harkiratSingh).
+Welcome to my **100xDevs Web Development** repository! This repo contains all the projects, code, and assignments I have worked on as part of the **100xDevs Web Development Cohort** led by **Harkirat Singh**.
 
 ## What's Inside 📂
 
