@@ -1,0 +1,17 @@
+{
+  "name": "mypromise",
+  "version": "1.0.0",
+  "description": "This is My own version of Promise creatation or implementation",
+  "main": "MyPromise.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "promise"
+  ],
+  "author": "Rahul Shah",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
