@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>TodoApp</title>
+</head>
+<body>
+    
+    <input type="text"></input>
+
+    <button onclick="addTodo()">Add todo </button>
+
+    <script>
+        let count = 1;
+
+        function deleteTodo(){
+            const element = document.getElementById(ctr);
+            element.parentNode.removeChild(element);
+        }
+
+        function addTodo(){
+            const inputEl =  document.querySelector('input');
+            const value = inputEl.value;
+
+            const newDivEl = document.createElement('div').setAttribute('id', count);
+            newDivEl.innerHTML = '<p>' + value + '</p> <button>Delete</button>';
+            
+            document.querySelector('body').appendChild(newDivEl);
+            count ++;
+        }
+    </script>
+</body>
+</html>
