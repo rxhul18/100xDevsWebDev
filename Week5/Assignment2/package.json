@@ -1,0 +1,15 @@
+{
+  "name": "assignment2",
+  "version": "1.0.0",
+  "description": "This is for Create a middleware that counts total number part of cohort 3 assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rahul Shah",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1"
+  }
+}
