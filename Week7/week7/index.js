@@ -3,6 +3,7 @@ const { UserModel, TodoModel} = require("./db")
 const jwt = require("jsonwebtoken");
 const Connection = require('./config');
 const { auth, JWT_SECRET } = require('./auth');
+const bcrypt = require('bcrypt');
 
 const app = express();
 Connection()
@@ -15,17 +16,20 @@ app.post("/signup", async function(req,res){
     const name = req.body.name
     const isExist = await UserModel.findOne({
         email:email,
-        password:password,
+        // password:password,
     })
+
     if(isExist){
         console.log("User with same id already exist");
         res.json({
             message:"User with same id already exist"
         })
     }else{
+        const hasedPassword = await bcrypt.hash(password,5)
+        console.log(hasedPassword,"hasedPassword");
         await UserModel.create({
             email:email,
-            password:password,
+            password:hasedPassword,
             name:name
         })
         console.log("Succesfully signedup");
@@ -37,10 +41,10 @@ app.post("/signup", async function(req,res){
 app.post("/signin", async function(req,res){
     const email = req.body.email
     const password = req.body.password
-
+    const hasedPassword = await bcrypt.compare(password)
     const user = await UserModel.findOne({
         email:email,
-        password:password
+        password:hasedPassword
     })
     console.log(user);
     if(user){

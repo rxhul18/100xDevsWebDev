@@ -1,8 +1,7 @@
+require('dotenv').config()
 const { default: mongoose } = require("mongoose")
-
-
 const Connection = async () => {
-    await mongoose.connect("mongodb+srv://mindpuzzledev:mindpuzzledev@mindpuzzledev.txfq8.mongodb.net/100x-todo")
+    await mongoose.connect(process.env.MONGO_URI)
     console.log("Succesfully connected to database");
 }
 
