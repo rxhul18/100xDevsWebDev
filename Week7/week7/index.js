@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const Connection = require('./config');
 const { auth, JWT_SECRET } = require('./auth');
 const bcrypt = require('bcrypt');
+const { z } = require('zod');
 
 const app = express();
 Connection()
@@ -11,6 +12,21 @@ Connection()
 app.use(express.json());
 
 app.post("/signup", async function(req,res){
+    const requiredBody = z.object({
+        email: z.string().min(3).max(100).email(),
+        password: z.string().min(6).max(100),
+        name: z.string().min(3).max(30)
+    })
+    
+    // const parsedData = requiredBody.parse(req.body)
+    const parsedDataWithSuccess = requiredBody.safeParse(req.body)
+    if (!parsedDataWithSuccess.success) {
+        res.json({
+            message: parsedDataWithSuccess.error.errors[0].message
+        })
+        return
+    }
+
     const email = req.body.email
     const password = req.body.password
     const name = req.body.name
@@ -41,13 +57,19 @@ app.post("/signup", async function(req,res){
 app.post("/signin", async function(req,res){
     const email = req.body.email
     const password = req.body.password
-    const hasedPassword = await bcrypt.compare(password)
     const user = await UserModel.findOne({
         email:email,
-        password:hasedPassword
+        // password:hasedPassword
     })
+    if(!user){
+        res.json({
+            message:"User not found"
+        },403)
+        return
+    }
+    const hasedPassword = await bcrypt.compare(password,user.password)
     console.log(user);
-    if(user){
+    if(hasedPassword){
         const token = jwt.sign({
             id: user._id.toString()
         },JWT_SECRET)
@@ -89,6 +111,19 @@ app.post("/todos",auth, async function(req,res){
     res.json({
         todos
     })
+})
+
+app.get("/todos",auth,async function(req,res){
+    const todos = await TodoModel.find()
+    if(!todos){
+        res.json({
+            message:"No todos found"
+        })
+    }else{
+        res.json({
+            todos
+        })
+    }
 })
 
 app.listen(3000,()=>{
